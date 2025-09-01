@@ -3,8 +3,8 @@ from flask_mysqldb import MySQL
 from flask import jsonify
 
 
-
 app = Flask(__name__, static_folder='static', template_folder='templates')
+
 
 @app.route('/')
 def index():
@@ -13,4 +13,16 @@ def index():
 
 @app.route('/home')
 def home():
-        return render_template('home.html')
+    return render_template('home.html')
+
+
+# Login
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+
+# Registration
+@app.route('/registration', methods=['GET', 'POST'])
+def registration():
+    return render_template("registration.html")
